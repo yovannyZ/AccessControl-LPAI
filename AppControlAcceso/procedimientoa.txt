@@ -1,0 +1,52 @@
+CREATE PROCEDURE sp_AgregarPersona
+@dni char(8),
+@nombre varchar(30),
+@apellido varchar(30),
+@email varchar(50),
+@telefono char(9)
+	
+AS
+BEGIN
+	insert into Persona values(@nombre,@apellido,@email,@telefono,@dni)
+END
+GO
+
+CREATE PROCEDURE sp_ActualizarPersona
+@dni char(8),
+@nombre varchar(30),
+@apellido varchar(30),
+@email varchar(50),
+@telefono char(9)
+	
+AS
+BEGIN
+	update Persona set Nombre=@nombre,
+						Apellido=@apellido,
+						Email=@email,
+						telefono=@telefono
+						where DNI=@dni
+	
+END
+GO
+
+CREATE PROCEDURE sp_EliminarrPersona
+@dni char(8)
+	
+AS
+BEGIN
+	delete from Persona where DNI=@dni
+	
+END
+GO
+
+CREATE PROCEDURE sp_ListarPersona
+
+	
+AS
+BEGIN
+	Select DNI,Nombre,Apellido,Email,telefono from Persona
+	
+END
+GO
+
+-----------------------
