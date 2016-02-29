@@ -114,19 +114,20 @@ public class HorarioDao implements IHorario {
         Horario horario = null;
         try {
             sql = "SELECT * FROM   dbo.Horario INNER JOIN\n"
-                    + "                                     dbo.Usuario ON dbo.Horario.fk_usuario = dbo.Usuario.pk_usuario INNER JOIN\n"
-                    + "                                     dbo.Persona ON dbo.Usuario.Fk_persona = dbo.Persona.DNI where dbo.Persona.DNI=?";
+                    + "  dbo.Usuario ON dbo.Horario.fk_usuario = dbo.Usuario.pk_usuario INNER JOIN\n"
+                    + "  dbo.Persona ON dbo.Usuario.Fk_persona = dbo.Persona.DNI where dbo.Persona.DNI=?";
             PreparedStatement pstm = cn.prepareCall(sql);
             pstm.setString(1, dni);
             ResultSet rs = pstm.executeQuery();
 
             while (rs.next()) {
-                 Horari
+                Usuario usu=usuarioDao.getUsuario(rs.getInt(2));
+                 horario= new Horario(rs.getInt(1), usu, rs.getTime(3), rs.getInt(4), rs.getTime(5));
                
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return lista;
+        return horario;
     }
 }

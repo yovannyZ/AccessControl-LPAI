@@ -61,13 +61,14 @@ public class Marcacion {
     public Marcacion() {
     }
 
-    public Marcacion(int _id, Horario _horario, Date _ingreso, Date _salida, boolean _tardanza) {
-        this._id = _id;
+    public Marcacion( Horario _horario, Date _ingreso, Date _salida, boolean _tardanza) {
         this._horario = _horario;
         this._ingreso = _ingreso;
         this._salida = _salida;
         this._tardanza = _tardanza;
     }
+     
+    
     
     
     

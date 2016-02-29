@@ -5,7 +5,8 @@
  */
 package datos;
 
-import entidad.Usuario;
+import entidad.Marcacion;
+
 
 /**
  *
@@ -14,7 +15,7 @@ import entidad.Usuario;
 public interface IMarcacion {
     
     
-    void Ingreso(Usuario usuario);
+    void Ingreso(Marcacion marcacion);
     
     
 }
