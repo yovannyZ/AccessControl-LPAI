@@ -8,6 +8,7 @@ package datos;
 import entidad.Usuario;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 /**
  *
@@ -19,7 +20,8 @@ public class MarcacionDao implements IMarcacion{
     @Override
     public void Ingreso(Usuario usuario) {
         try {
-            CallableStatement cs=cn.prepareCall("{call sp_marcacion(?,?)}");
+            String sql="";
+            PreparedStatement ps=cn.prepareCall(sql);
             cs.setString(1, usuario.getPersona().getDni());
             cs.setString(2, usuario.getClave());
             cs.executeUpdate();

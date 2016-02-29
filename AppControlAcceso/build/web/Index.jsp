@@ -11,20 +11,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <link href="bootstrap.3.0.1/content/Content/bootstrap.min.css" />
     </head>
     <body>
-       
-        <table>
-            <tr>
-                <td>DNI</td>
-                <td>NOMBRE</td>
-            </tr>
-            <c:forEach var="item" items="${personas}">
-                <tr>
-                    <td>${item.getDni()}</td>
-                     <td>${item.getNombre()}</td>
-                </tr>
-            </c:forEach>
-        </table>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="form-control">Codigo:</label>
+                <input type="text" class="form-control" />
+            </div>
+        </div>
     </body>
 </html>

@@ -109,4 +109,24 @@ public class HorarioDao implements IHorario {
         }
         return lista;
     }
+
+    public Horario getHorario(String  dni) {
+        Horario horario = null;
+        try {
+            sql = "SELECT * FROM   dbo.Horario INNER JOIN\n"
+                    + "                                     dbo.Usuario ON dbo.Horario.fk_usuario = dbo.Usuario.pk_usuario INNER JOIN\n"
+                    + "                                     dbo.Persona ON dbo.Usuario.Fk_persona = dbo.Persona.DNI where dbo.Persona.DNI=?";
+            PreparedStatement pstm = cn.prepareCall(sql);
+            pstm.setString(1, dni);
+            ResultSet rs = pstm.executeQuery();
+
+            while (rs.next()) {
+                 Horari
+               
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return lista;
+    }
 }
